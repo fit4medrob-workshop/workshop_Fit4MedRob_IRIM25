@@ -161,7 +161,7 @@ nav a.active::after {
 
 /* Mobile Menu Toggle */
 .menu-toggle {
-  display: none;
+  display: none; /* Nascosto di default */
   background: none;
   border: none;
   color: white;
@@ -176,6 +176,26 @@ nav a.active::after {
 .menu-toggle:focus {
   outline: 2px solid var(--highlight);
   outline-offset: 2px;
+}
+
+/* Stili per la navigazione desktop */
+#main-nav {
+  display: flex;
+  margin-left: auto;
+}
+
+#main-nav a {
+  color: white;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  margin: 0 0.25rem;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+#main-nav a:hover,
+#main-nav a.active {
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
 /* Hero Section */
@@ -300,9 +320,43 @@ main {
   }
 }
 
+/* Stili per la versione desktop */
+#main-nav {
+  display: flex;
+  margin-left: auto;
+}
+
+#main-nav a {
+  color: white;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  margin: 0 0.25rem;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+#main-nav a:hover,
+#main-nav a.active {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Stili per la versione mobile */
+.menu-toggle {
+  display: none; /* Nascosto di default (versione desktop) */
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.8rem;
+  cursor: pointer;
+  padding: 0.5rem;
+  margin-left: auto;
+}
+
 @media (max-width: 768px) {
   .menu-toggle {
-    display: block;
+    display: flex; /* Mostrato solo su mobile */
+    align-items: center;
+    justify-content: center;
   }
   
   #main-nav {
@@ -313,51 +367,35 @@ main {
     background: var(--primary-blue);
     flex-direction: column;
     padding: 0;
-    transform: translateY(-100%);
-    opacity: 0;
-    visibility: hidden;
-    transition: transform 0.3s ease-in-out, opacity 0.3s ease, visibility 0.3s ease;
-    z-index: 999;
-    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   }
   
   #main-nav.active {
-    transform: translateY(0);
-    opacity: 1;
-    visibility: visible;
+    max-height: 500px; /* Altezza sufficiente per contenere i link */
+    padding: 1rem 0;
   }
   
-
-  
-  nav a {
+  #main-nav a {
     display: block;
-    padding: 0.75rem 2rem;
+    padding: 1rem 2rem;
     margin: 0;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 0;
+    text-align: center;
   }
   
-  nav a:last-child {
+  #main-nav a:last-child {
     border-bottom: none;
   }
   
-  nav a::after {
-    display: none;
-  }
-  
-  /* Mostra il pulsante menu su mobile */
-  .menu-toggle {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 44px;
-    height: 44px;
-  }
-  
-  /* Regola le dimensioni dei loghi su mobile */
   .logo {
     height: 36px;
   }
 }
+
 
 .footer-greenbar {
   background: #009b4e; /* Verde istituzionale */
