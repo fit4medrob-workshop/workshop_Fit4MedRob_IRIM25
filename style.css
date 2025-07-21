@@ -1,0 +1,446 @@
+/* IRIM 2025 - Modern Robotics Theme */
+:root {
+  /* Color scheme based on IRIM logo */
+  --primary-blue: #003366;    /* Dark blue from logo */
+  --secondary-blue: #336699;  /* Medium blue from logo */
+  --accent-color: #6699cc;    /* Light blue from logo */
+  --highlight: #99ccff;       /* Highlight blue */
+  --background: #ffffff;      /* White background */
+  --light-bg: #f5f8fa;       /* Light gray background */
+  --text: #333333;           /* Dark gray text */
+  --text-light: #666666;     /* Lighter text */
+  --header-height: 80px;
+  --font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+  --box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  --transition: all 0.3s ease;
+}
+
+/* Base Styles */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-family);
+  background: var(--background);
+  color: var(--text);
+  line-height: 1.7;
+  font-size: 16px;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--primary-blue);
+  margin-top: 0;
+  line-height: 1.3;
+}
+
+h1 { font-size: 2.5rem; margin-bottom: 1.5rem; }
+h2 { font-size: 2rem; margin-bottom: 1.25rem; }
+h3 { font-size: 1.5rem; margin-bottom: 1rem; }
+
+p {
+  margin: 0 0 1.5rem 0;
+}
+
+a {
+  color: var(--accent-color);
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+a:hover {
+  color: var(--primary-blue);
+  text-decoration: underline;
+}
+
+/* Layout */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.section {
+  padding: 4rem 0;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 3rem;
+  position: relative;
+  padding-bottom: 1rem;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: var(--accent-color);
+  border-radius: 2px;
+}
+
+/* Header */
+header {
+  background: var(--primary-blue);
+  color: white;
+  height: var(--header-height);
+  display: flex;
+  align-items: center;
+  padding: 0 2rem;
+  box-shadow: var(--box-shadow);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  transition: var(--transition);
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  background: white;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+  height: 40px;
+  width: auto;
+  margin-right: 1rem;
+}
+
+.fit4med-logo {
+  height: 35px;
+  width: auto;
+  margin-left: 1rem;
+  padding-left: 1rem;
+  border-left: 1px solid #eee;
+}
+
+/* Navigation */
+.nav-container {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+}
+
+nav a {
+  color: rgba(255, 255, 255, 0.9);
+  text-decoration: none;
+  margin-left: 2rem;
+  font-weight: 500;
+  font-size: 1rem;
+  transition: var(--transition);
+  padding: 0.5rem 0;
+  position: relative;
+}
+
+nav a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: var(--highlight);
+  transition: var(--transition);
+}
+
+nav a:hover,
+nav a.active {
+  color: white;
+}
+
+nav a:hover::after,
+nav a.active::after {
+  width: 100%;
+}
+
+/* Mobile Menu Toggle */
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+  margin-left: 1rem;
+  padding: 0.5rem;
+}
+
+/* Hero Section */
+.hero {
+  background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+  color: white;
+  padding: 6rem 0;
+  text-align: center;
+}
+
+.hero h1 {
+  color: white;
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  font-size: 1.25rem;
+  max-width: 800px;
+  margin: 0 auto 2rem;
+  opacity: 0.9;
+}
+
+/* Footer */
+footer {
+  background: var(--primary-blue);
+  color: white;
+  padding: 3rem 0;
+  margin-top: 4rem;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.footer-section {
+  flex: 1;
+  min-width: 250px;
+}
+
+.footer-section h3 {
+  color: white;
+  margin-bottom: 1.5rem;
+  position: relative;
+  padding-bottom: 0.75rem;
+}
+
+.footer-section h3::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 50px;
+  height: 2px;
+  background: var(--highlight);
+}
+
+.footer-section p {
+  opacity: 0.9;
+  margin-bottom: 1rem;
+}
+
+.social-links {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.social-links a {
+  color: white;
+  font-size: 1.25rem;
+  opacity: 0.8;
+  transition: var(--transition);
+}
+
+.social-links a:hover {
+  opacity: 1;
+  color: var(--highlight);
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-bottom p {
+  margin: 0;
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+  min-height: calc(100vh - var(--header-height) - 220px);
+  background-color: var(--background);
+  line-height: 1.7;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .container {
+    padding: 0 2rem;
+  }
+  
+  .section {
+    padding: 3rem 0;
+  }
+  
+  h1 {
+    font-size: 2.25rem;
+  }
+  
+  h2 {
+    font-size: 1.75rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+  
+  #main-nav {
+    position: fixed;
+    top: var(--header-height);
+    left: 0;
+    right: 0;
+    background: var(--primary-blue);
+    flex-direction: column;
+    padding: 1rem 0;
+    transform: translateY(-100%);
+    transition: transform 0.3s ease-in-out;
+    z-index: 999;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  #main-nav.active {
+    transform: translateY(0);
+  }
+  
+  nav a {
+    display: block;
+    padding: 0.75rem 2rem;
+    margin: 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  nav a:last-child {
+    border-bottom: none;
+  }
+  
+  nav a::after {
+    display: none;
+  }
+  
+  /* Mostra il pulsante menu su mobile */
+  .menu-toggle {
+    display: block;
+    margin-left: auto;
+  }
+  
+  /* Regola le dimensioni dei loghi su mobile */
+  .logo {
+    height: 36px;
+  }
+  
+  /* Assicura che il pulsante menu sia sempre visibile */
+  .menu-toggle {
+    z-index: 1001;
+  }
+}
+
+.footer-greenbar {
+  background: #009b4e; /* Verde istituzionale */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1.5rem 1rem;
+  margin-top: 2rem;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.footer-greenbar img {
+  height: 70px;
+  width: auto;
+  max-width: 220px;
+  object-fit: contain;
+  opacity: 0.9;
+  transition: opacity 0.2s;
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0 15px;
+}
+
+.footer-greenbar img:hover {
+  opacity: 1;
+}
+
+/* Stile per mobile */
+@media (max-width: 768px) {
+  .footer-greenbar {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+    gap: 1.5rem 1rem;
+    padding: 1.2rem 0.5rem;
+  }
+  
+  .footer-greenbar img {
+    height: 50px;
+    max-width: 180px;
+    margin: 10px auto;
+  }
+  
+  /* Allinea i loghi in due righe da due */
+  .footer-greenbar img:nth-child(odd) {
+    justify-self: end;
+    margin-right: 0.5rem;
+  }
+  
+  .footer-greenbar img:nth-child(even) {
+    justify-self: start;
+    margin-left: 0.5rem;
+  }
+}
+
+/* Topics Section */
+.topics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.topic-card {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 60px;
+  justify-content: space-between;
+}
+
+.topic-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.topic-card i {
+  font-size: 2.5rem;
+  margin-top: 1.5rem;
+  order: 2;
+}
+
+.topic-card span {
+  font-size: 1.1rem;
+  color: #333;
+  font-weight: 500;
+  order: 1;
+  display: block;
+  margin-bottom: 1.5rem;
+}
