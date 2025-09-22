@@ -17,95 +17,55 @@
       text-align: center;
       margin-bottom: 3rem;
     }
-
-    .page-header h1 {
-      color: white;
-      margin-bottom: 1rem;
-      font-size: 2.5rem;
-    }
-
-    .page-header p {
-      font-size: 1.2rem;
-      max-width: 800px;
-      margin: 0 auto;
-      opacity: 0.9;
-    }
-
-    .program-placeholder {
-      background: white;
-      border-radius: 10px;
-      padding: 3rem 2rem;
+    .page-header h1 { color: white; margin-bottom: 1rem; font-size: 2.5rem; }
+    .program-container { max-width: 1200px; margin: 0 auto; padding: 0 20px 4rem; }
+    .session-section { margin-bottom: 4rem; }
+    .session-header { background: #f8f9fa; padding: 1.5rem; border-radius: 8px; margin-bottom: 2rem; }
+    .session-header h2 { color: var(--primary-blue); margin: 0 0 0.5rem 0; }
+    .session-header p { color: #555; margin: 0; font-size: 1.05rem; }
+    .session-header h2,
+    .session-header p {
       text-align: center;
-      box-shadow: var(--box-shadow);
-      max-width: 800px;
-      margin: 0 auto 4rem;
     }
 
-    .program-placeholder i {
-      font-size: 4rem;
-      color: var(--accent-color);
-      margin-bottom: 1.5rem;
-      display: block;
-    }
+    .speakers-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 2rem; margin-top: 1.5rem; }
+    .speaker-card { background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 10px rgba(0,0,0,.1); transition: transform .3s ease, box-shadow .3s ease; }
+    .speaker-card:hover { transform: translateY(-5px); box-shadow: 0 5px 15px rgba(0,0,0,.15); }
+    .speaker-photo { width: 100%; height: 200px; object-fit: cover; border-bottom: 1px solid #eee; }
+    .speaker-photo.contain { object-fit: contain; background-color: #f3f4f6; }
+    .speaker-info { padding: 1.5rem; }
+    .speaker-info h3 { color: var(--primary-blue); margin: 0 0 .5rem 0; font-size: 1.2rem; }
+    .talk-title { color: var(--secondary-blue); font-style: italic; margin: 0 0 1rem 0; font-size: 1rem; line-height: 1.4; }
+    .speaker-bio { color: #555; font-size: .9rem; line-height: 1.6; margin: 0; }
+    .no-photo { width: 100%; height: 200px; background: #f0f0f0; display: flex; align-items: center; justify-content: center; color: #999; }
+    .back-to-top { display: block; text-align: center; margin: 2rem 0; color: var(--primary-blue); text-decoration: none; font-weight: 500; }
+    .back-to-top:hover { text-decoration: underline; }
 
-    .program-placeholder h2 {
-      color: var(--primary-blue);
-      margin-bottom: 1rem;
+    /* At a glance */
+    .glance-section { margin-bottom: 4rem; }
+    .speakers-table { width: 100%; border-collapse: collapse; margin: 2rem 0 3rem; background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 10px rgba(0,0,0,.05); }
+    .speakers-table th, .speakers-table td { padding: 1rem; text-align: left; border-bottom: 1px solid #eee; vertical-align: top; }
+    .speakers-table th { background-color: var(--primary-blue); color: white; font-weight: 500; }
+    .speakers-table th,
+    .speakers-table td {
+    vertical-align: middle; /* assicura l’allineamento verticale */
     }
+    .speakers-table tr:last-child td { border-bottom: none; }
+    .speakers-table tr:hover { background-color: #f9f9f9; }
+    .speaker-name { color: var(--primary-blue); font-weight: 500; }
+    .talk-link, .mini-link { color: var(--secondary-blue); text-decoration: none; font-style: italic; }
+    .talk-link:hover, .mini-link:hover { text-decoration: underline; }
+    .session-time { white-space: nowrap; color: #666; font-size: .95rem; }
+    .session-tag { display: inline-block; padding: .25rem .75rem; background-color: #f0f7ff; color: var(--primary-blue); border-radius: 20px; font-size: .8rem; font-weight: 500; margin-right: .5rem; }
 
-    .program-placeholder p {
-      color: var(--text-color);
-      margin-bottom: 1.5rem;
-      line-height: 1.6;
-    }
-
-    .btn {
-      display: inline-block;
-      background: var(--primary-blue);
-      color: white;
-      padding: 0.8rem 2rem;
-      border-radius: 30px;
-      text-decoration: none;
-      font-weight: 500;
-      transition: var(--transition);
-      border: 2px solid transparent;
-    }
-
-    .btn:hover {
-      background: var(--secondary-blue);
-      transform: translateY(-2px);
-    }
-
-    .btn-outline {
-      background: transparent;
-      border: 2px solid var(--primary-blue);
-      color: var(--primary-blue);
-    }
-
-    .btn-outline:hover {
-      background: var(--primary-blue);
-      color: white;
-    }
-
-    .program-timeline {
-      max-width: 800px;
-      margin: 0 auto 4rem;
-      display: none; /* Will be shown when program is available */
-    }
+    /* narrow screens: allow the table to scroll */
+    .table-wrap { overflow-x: auto; }
+    .speakers-table .muted { color:#777; font-style: italic; }
 
     @media (max-width: 768px) {
-      .page-header {
-        padding: 3rem 1rem;
-      }
-      
-      .page-header h1 {
-        font-size: 2rem;
-      }
-      
-      .program-placeholder {
-        margin: 0 1rem 3rem;
-        padding: 2rem 1.5rem;
-      }
+      .speakers-grid { grid-template-columns: 1fr; }
+      .page-header { padding: 3rem 1rem; }
+      .page-header h1 { font-size: 2rem; }
     }
   </style>
 </head>
@@ -123,27 +83,191 @@
     </nav>
   </header>
 
-  <div class="hero">
-    <div class="hero-content">
-      <h1 class="main-title">Program</h1>
-    </div>
+  <div class="page-header">
+    <h1>Tentative Program</h1>
   </div>
 
-  <main class="container">
-    <div class="program-placeholder">
-      <i class="fas fa-calendar-alt"></i>
-      <h2>Program Coming Soon</h2>
-      <div style="margin-top: 2rem;">
-        <a href="index.html" class="btn">Back to Home</a>
-        <a href="organization.html" class="btn btn-outline" style="margin-left: 1rem;">Meet the Organizers</a>
-      </div>
-    </div>
+  <div class="program-container">
+<!-- Program at a Glance -->
+<section class="glance-section">
+  <h2 class="section-title">Program at a Glance</h2>
 
-    <!-- Program Timeline (Hidden until program is available) -->
-    <div class="program-timeline">
-      <!-- Program content will be added here when available -->
-    </div>
-  </main>
+  <div class="table-wrap">
+    <table class="speakers-table">
+      <thead>
+        <tr>
+          <th>Time</th>
+          <th>Block</th>
+          <th>Session</th>
+          <th>Speaker</th>
+          <th></th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Workshop Presentations: 4 righe di sessione, quindi rowspan=4 -->
+        <tr>
+          <td class="session-time" rowspan="4">11:00 – 12:30</td>
+          <td rowspan="4"><span class="session-tag">Workshop Presentations</span></td>
+          <td><a href="#welcome" class="talk-link">Welcome & Introduction</a></td>
+          <td>Workshop Organizers</td>
+          <td colspan="3"></td>
+        </tr>
+        
+        <tr>
+          <td><a href="#case-reports" class="talk-link">Case Reports on Intervention Customization</a></td>
+          <td><a href="#spk-guanziroli" class="mini-link">E. Guanziroli</a></td>
+          <td><a href="#spk-biffi" class="mini-link">E. Biffi</a></td>
+          <td><a href="#spk-angelini" class="mini-link">L. Angelini</a></td>
+          <td><a href="#spk-ramat" class="mini-link">S. Ramat</a></td>
+        </tr>
+        <tr>
+          <td><a href="#technologies" class="talk-link">Technologies for Assessment</a></td>
+          <td><a href="#spk-casadio" class="mini-link">M. Casadio</a></td>
+          <td><a href="#spk-gherardini" class="mini-link">M. Gherardini</a></td>
+          <td><a href="#spk-zollo" class="mini-link">L. Zollo</a></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td><a href="#round-table" class="talk-link">Closing & Discussion</a></td>
+          <td>Workshop Organizers</td>
+          <td colspan="3"></td>
+        </tr>
+
+        <!-- Poster Session: riga separata -->
+        <tr>
+          <td class="session-time">12:30 – 13:30</td>
+          <td><span class="session-tag">Poster Session</span></td>
+          <td class="muted"><a href="#poster-session" class="talk-link">Extended abstracts</a></td>
+          <td colspan="4" class="muted"></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<h2 class="section-title">Detailed Program</h2>
+
+      <!-- A. Welcome & Introduction (no time here) -->
+      <section class="session-section" id="welcome">
+        <div class="session-header">
+          <h2>Welcome & Introduction</h2>
+        </div>
+      </section>
+
+      <!-- B. Case Reports (no time here) -->
+      <section class="session-section" id="case-reports">
+        <div class="session-header">
+          <h2>Case Reports on Intervention Customization</h2>
+        </div>
+        <div class="speakers-grid">
+          <div class="speaker-card" id="spk-guanziroli">
+            <div class="speaker-photo-container">
+              <img src="assets/Guanziroli.jpg" alt="Eleonora Guanziroli" class="speaker-photo contain">
+            </div>
+            <div class="speaker-info">
+              <h3>Eleonora Guanziroli</h3>
+              <p class="talk-title">HR Interaction: Integration of biomarkers into Clinical Practice</p>
+              <p class="speaker-bio">Eleonora Guanziroli completed her Ph.D. in Applied Mechanics in 2014 and her Post graduate Master's Degree in Biomedical Engineering in  2008.  She works as Researcher at the Bioengineering Division of Villa Beretta Rehabilitation Center (Valduce Hospital). She works in the movement analysis laboratory and she follows research activity in biomedical fields. The research activity focuses on the development of robotic devices aimed at walking recovery of neurological patients, application of robotic devices in rehabilitation fields, detection of physiological parameters on neurological patients during robotic training, evaluation of Autonomic Nervous System functionality, application of functional electrical stimulation during movements assisted by robot, software development in MATLAB environment for the integration of different signals, management and maintenance of the Electronic Medical Record. Her research activity includes also European Projects and International Cooperation Projects. She is Study Coordinator in Multicenter Projects about the use of botulinum toxin where knowledge of ICH-GCP and awareness of local regulatory regulations regarding drug research is required.
+              </p>
+            </div>
+          </div>
+          
+          
+          <div class="speaker-card" id="spk-biffi">
+            <div class="speaker-photo-container">
+              <img src="assets/Biffi.jpg" alt="Emilia Biffi" class="speaker-photo contain">
+            </div>
+            <div class="speaker-info">
+              <h3>Emilia Biffi</h3>
+              <p class="talk-title">Stepping Forward: Agilik Exoskeleton for Children with Cerebral Palsy in a Multicenter Study</p>
+              <p class="speaker-bio">Dr. Biffi is a biomedical engineer and researcher at IRCCS Medea in Milan, with expertise in pediatric rehabilitation technologies. Her research focuses on developing and evaluating robotic exoskeletons for children with neuromotor disorders. The Agilik exoskeleton represents a breakthrough in pediatric rehabilitation, offering customizable support for children with cerebral palsy to improve their mobility and independence.</p>
+            </div>
+          </div>
+          
+
+          <div class="speaker-card" id="spk-angelini">
+            <div class="speaker-photo-container">
+              <img src="assets/Angelini.jpg" alt="Lucia Angelini" class="speaker-photo contain">
+            </div>
+            <div class="speaker-info">
+              <h3>Lucia Angelini</h3>
+              <p class="talk-title">Assessment of fine and gross dexterity through the transport of fragile objects: the Virtual Egg Test</p>
+              <p class="speaker-bio"></p>
+            </div>
+          </div>
+
+          <div class="speaker-card" id="spk-ramat">
+            <div class="speaker-photo-container">
+              <img src="assets/ramat.png" alt="Stefano Ramat" class="speaker-photo contain">
+            </div>
+            <div class="speaker-info">
+              <h3>Stefano Ramat</h3>
+              <p class="talk-title">Hemi-inattention: rehabilitation and assessment through the TIAGO robotic platform</p>
+              <p class="speaker-bio">Stefano Ramat was born on February 18, 1971, in Cagliari (Italy). He graduated in Computer Science Engineering from the University of Pavia in 1995, and received a Ph.D. in Biomedical Engineering from the Polytechnic of Milan in 1999. He was then a postdoctoral fellow and a research associate at the Johns Hopkins University. Since 2020 he is a full professor of Bioengineering at the University of Pavia. His work provided significant contributions in the field of ocular motor control, in particular on the understanding of the translational vestibulo-ocular reflex (tVOR), the modeling of the saccadic system and its oscillations, and the assessment of vestibular function with the invention of the functional Head Impulse Test (fHIT). His current projects focus on monitoring frail patients in AAL scenarios and robotics for neuromotor rehabilitation in post-stroke and neurodegenerative disorders patients. His scientific interests include motor control, mathematical modeling, signal processing and computational intelligence.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- C. Technologies (no time here) -->
+      <section class="session-section" id="technologies">
+        <div class="session-header">
+          <h2>Technologies for Assessment</h2>
+        </div>
+        <div class="speakers-grid">
+          <div class="speaker-card" id="spk-casadio">
+            <div class="speaker-photo-container">
+              <img src="assets/Casadio.jpg" alt="Maura Casadio" class="speaker-photo contain">
+            </div>
+            <div class="speaker-info">
+              <h3>Maura Casadio</h3>
+              <p class="talk-title">Synergic practice with a body-machine interface: implications for individual and collective motor learning</p>
+              <p class="speaker-bio">Maura Casadio is a Full Professor of Biomedical Engineering at the University of Genoa, Italy. She received the M.S. degree in Electronic Engineering in 2002 from the University of Pisa, Pisa, Italy, the M.S. degree in Bioengineering in 2007, and the Ph.D. degree in Robotics and Bioengineering in 2006, both from the University of Genoa. From 2008 to 2011, she was a Postdoctoral Fellow in the Department of Physiology at Northwestern University and in the Robotics Laboratory at the Rehabilitation Institute of Chicago (now Shirley Ryan AbilityLab), Chicago, IL, USA. Her main research interests include the neural control of movement and force, rehabilitation, biomedical robotics, sensory integration, artificial and augmented perception, and body–machine interfaces.</p>
+            </div>
+          </div>
+
+          <div class="speaker-card" id="spk-gherardini">
+            <div class="speaker-photo-container">
+              <img src="assets/Gherardini.png" alt="Marta Gherardini" class="speaker-photo contain">
+            </div>
+            <div class="speaker-info">
+              <h3>Marta Gherardini</h3>
+              <p class="talk-title">Personalized myokinetic human–machine interface for upper-limb prostheses</p>
+              <p class="speaker-bio">Marta Gherardini received the B.Sc. degree in biomedical engineering from the Univesity of Pisa, Italy, in 2015, and the M.Sc. degree in bionics engineering, jointly offered by the University of Pisa and the Scuola Superiore Sant’Anna in 2018. She is currently pursuing the Ph.D. degree in biorobotics with the Scuola Superiore Sant’Anna, where she is involved in national and European research projects. She ended her master studies with a six-month intership with the Robot Vision Group, University College of London. Her research interests mainly include the development of magnetic tracking systems for the control of prosthetic devices.</p>
+            </div>
+          </div>
+
+          <div class="speaker-card" id="spk-zollo">
+            <div class="speaker-photo-container">
+              <img src="assets/zollo.png" alt="Loredana Zollo" class="speaker-photo contain">
+            </div>
+            <div class="speaker-info">
+              <h3>Loredana Zollo</h3>
+              <p class="talk-title">Next Generation Robots: Robot-aided Rehabilitation and more</p>
+              <p class="speaker-bio">Loredana Zollo received the M.S. degree in electronic engineering from Università degli Studi di Napoli “Federico II,” Naples, Italy, in 2000, and the Ph.D. degree in bioengineering from Scuola Superiore Sant’Anna di Pisa, Pisa, Italy, in 2004.,She is a Full Professor of bioengineering and the Director of the Master of Science in Biomedical at Università Campus Bio-Medico di Roma (UCBM), where she is also the Director of the CREO Lab–Laboratory of Advanced Robotics and Human-Centered Technologies. She has been involved in more than 40 EU-funded and national projects in her application fields, such as the EU H2020/FET-Open/SOMA as a Project Coordinator and the EU H2020/ODIN and AIDE as a Scientific Coordinator for UCBM. She has authored/coauthored more than 160 scientific publications and six patents. Her research interests include rehabilitation and assistive robotics, biorobotics and bionics, human–machine interfaces, and collaborative robotics.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- D. Closing by Organizers (no time here) -->
+      <section class="session-section" id="round-table">
+        <div class="session-header">
+          <h2>Closing & Discussion</h2>
+        </div>
+      </section>
+    </section>
+
+    <!-- Macro Block: Poster Session -->
+    <section class="session-section" id="poster-session">
+      <div class="session-header">
+        <h2>Poster Session</h2>
+        <p>This will include the extended abstracts assigned to the session based on thematic affinity.</p>
+      </div>
+    </section>
+  </div>
 
   <footer>
     Robotics and Emerging Technologies in Rehabilitation: The Robot as a Tool for Both Assessment and Personalized Intervention &mdash; a <a href="https://www.fit4medrob.it/" target="_blank" style="color: #0066cc; text-decoration: none;">Fit4MedRob</a> event
@@ -155,25 +279,21 @@
     </div>
   </footer>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="js/menu.js"></script>
   <script>
-    // Smooth scrolling for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function(e) {
-        const targetId = this.getAttribute('href');
-        if (targetId === '#') return;
-        
-        const targetElement = document.querySelector(targetId);
-        if (targetElement) {
-          e.preventDefault();
-          window.scrollTo({
-            top: targetElement.offsetTop - 100,
-            behavior: 'smooth'
-          });
-        }
+    // Simple back to top functionality
+    document.querySelectorAll('.back-to-top').forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
       });
     });
+
+    // Mobile menu toggle
+    const toggle = document.querySelector('.menu-toggle');
+    const nav = document.getElementById('main-nav');
+    if (toggle && nav) {
+      toggle.addEventListener('click', () => nav.classList.toggle('open'));
+    }
   </script>
 </body>
 </html>
