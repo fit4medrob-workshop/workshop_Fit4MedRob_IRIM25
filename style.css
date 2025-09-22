@@ -320,6 +320,62 @@ main {
   }
 }
 
+/* Stili per la navigazione mobile */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block; /* Mostra il pulsante del menu su mobile */
+  }
+
+  #main-nav {
+    position: fixed;
+    top: var(--header-height);
+    left: 0;
+    width: 100%;
+    background: var(--primary-blue);
+    flex-direction: column;
+    align-items: stretch;
+    padding: 1rem 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transform: translateY(-100%);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 999;
+  }
+
+  #main-nav.active {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+  }
+
+  #main-nav a {
+    margin: 0;
+    padding: 1rem 2rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  #main-nav a:last-child {
+    border-bottom: none;
+  }
+
+  #main-nav a::after {
+    display: none;
+  }
+
+  /* Stile per il body quando il menu è aperto */
+  body.menu-open {
+    overflow: hidden;
+  }
+}
+
+/* Stili per la navigazione desktop */
+@media (min-width: 769px) {
+  .menu-toggle {
+    display: none; /* Nascondi il pulsante su desktop */
+  }
+}
+
 /* Stili per la versione desktop */
 #main-nav {
   display: flex;
